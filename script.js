@@ -33,10 +33,10 @@ class TaskManager {
     this.tasks.forEach((task) => {
       const li = document.createElement("li");
       li.innerHTML = `
-                <span>${task.name}</span>
-                <button class="update-btn" data-id="${task.id}">Update</button>
-                <button class="delete-btn" data-id="${task.id}">Delete</button>                
-            `;
+                  <span>${task.name}</span>
+                  <button class="update-btn" data-id="${task.id}">Update</button>
+                  <button class="delete-btn" data-id="${task.id}">Delete</button>                
+              `;
       taskList.appendChild(li);
     });
 
