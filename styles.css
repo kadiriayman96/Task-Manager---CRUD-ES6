@@ -64,3 +64,14 @@ li span {
   cursor: pointer;
   background-color: #dc3545;
 }
+
+.update-btn {
+  color: #ddd;
+  cursor: pointer;
+  background-color: rgb(33, 128, 33);
+}
+
+.update-btn:hover,
+.delete-btn:hover {
+  background-color: black;
+}
