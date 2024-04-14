@@ -75,3 +75,7 @@ li span {
 .delete-btn:hover {
   background-color: black;
 }
+footer {
+  text-align: center;
+  color: #aaa;
+}
