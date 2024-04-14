@@ -62,6 +62,7 @@ class TODO {
         let originalNomTache =
           btn.parentElement.querySelector("span").innerHTML;
         let nomTache = prompt("Modifier la tache :", originalNomTache);
+        if (nomTache === null) return;
         this.modifierTache(idTache, nomTache);
       });
     });
