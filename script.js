@@ -12,6 +12,14 @@ class TODO {
     this.AfficherTaches();
   }
 
+  modifierTache(idTache, nomTache) {
+    this.taches.forEach((tache) => {
+      if (tache.id == idTache) {
+        tache.tache = nomTache;
+      }
+    });
+    this.AfficherTaches();
+  }
   supprimerTache(idTache) {
     this.taches = this.taches.filter((tache) => tache.id != idTache);
     this.AfficherTaches();
@@ -25,20 +33,36 @@ class TODO {
       var li = document.createElement("li");
       li.innerHTML = `
                 <span>${tache.tache}</span>
-                <button class="delete-btn" data-id="${tache.id}">Delete</button>
+                <button class="update-btn" data-id="${tache.id}">Modifier</button>
+                <button class="delete-btn" data-id="${tache.id}">Supprimer</button>
+                
       `;
       liste.appendChild(li);
     });
 
     this.SupprimerTacheEvent();
+    this.ModifierTacheEvent();
   }
 
   SupprimerTacheEvent() {
-    var deleteBtns = document.querySelectorAll(".delete-btn");
-    deleteBtns.forEach((btn) => {
+    var deleteButtons = document.querySelectorAll(".delete-btn");
+    deleteButtons.forEach((btn) => {
       btn.addEventListener("click", (e) => {
         let idTache = btn.getAttribute("data-id");
         this.supprimerTache(idTache);
+      });
+    });
+  }
+
+  ModifierTacheEvent() {
+    var updateButtons = document.querySelectorAll(".update-btn");
+    updateButtons.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        let idTache = btn.getAttribute("data-id");
+        let originalNomTache =
+          btn.parentElement.querySelector("span").innerHTML;
+        let nomTache = prompt("Modifier la tache :", originalNomTache);
+        this.modifierTache(idTache, nomTache);
       });
     });
   }
